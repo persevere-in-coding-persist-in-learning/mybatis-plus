@@ -1,0 +1,19 @@
+server:
+  #端口配置
+  port: 8080
+spring:
+  #应用名称
+  application:
+    name: mybatis-plus
+  #数据源配置
+  datasource:
+  url: jdbc:mysql://localhost:3306/mybatis_plus?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=GMT%2B8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    #driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+  #配置mybatis-plus日志
+  mybatis-plus:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
