@@ -36,9 +36,18 @@ public class UserController extends ApiController {
      * @param user 查询实体
      * @return 所有数据
      */
-    @GetMapping
+    @GetMapping("selectAll")
     public R selectAll(Page<User> page, User user) {
         return success(this.userService.page(page, new QueryWrapper<>(user)));
+    }
+
+    /**
+     * 根据姓名获取用户信息
+     * * @return 所有数据
+     */
+    @GetMapping("selectByName")
+    public R selectByName(String userName) {
+        return success(this.userService.getUserByName(userName));
     }
 
     /**
@@ -47,8 +56,8 @@ public class UserController extends ApiController {
      * @param id 主键
      * @return 单条数据
      */
-    @GetMapping("{id}")
-    public R selectOne(@PathVariable Serializable id) {
+    @GetMapping("selectById/{id}")
+    public R selectById(@PathVariable Serializable id) {
         return success(this.userService.getById(id));
     }
 
@@ -58,7 +67,7 @@ public class UserController extends ApiController {
      * @param user 实体对象
      * @return 新增结果
      */
-    @PostMapping
+    @PostMapping("insert")
     public R insert(@RequestBody User user) {
         return success(this.userService.save(user));
     }
@@ -69,7 +78,7 @@ public class UserController extends ApiController {
      * @param user 实体对象
      * @return 修改结果
      */
-    @PutMapping
+    @PutMapping("update")
     public R update(@RequestBody User user) {
         return success(this.userService.updateById(user));
     }
@@ -80,7 +89,7 @@ public class UserController extends ApiController {
      * @param idList 主键结合
      * @return 删除结果
      */
-    @DeleteMapping
+    @DeleteMapping("delete")
     public R delete(@RequestParam("idList") List<Long> idList) {
         return success(this.userService.removeByIds(idList));
     }

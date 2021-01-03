@@ -12,8 +12,8 @@ spring:
     #driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: root
-  #配置mybatis-plus日志
-  mybatis-plus:
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#配置mybatis-plus日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 

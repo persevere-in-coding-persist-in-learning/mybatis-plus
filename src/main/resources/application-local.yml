@@ -13,10 +13,19 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
-  #配置mybatis-plus日志
-  mybatis-plus:
-    configuration:
-      map-underscore-to-camel-case: true
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# Logger Config
+logging:
+  level:
+    com.baomidou.mybatisplus.samples: info
+#配置mybatis-plus日志
+mybatis-plus:
+  #xml文件的位置
+  mapper-locations: classpath:**/mapper/xml/*.xml
+  #其他配置
+  configuration:
+    #是否开始数据库下划线字段转驼峰eg:user_name--->userName
+    map-underscore-to-camel-case: true
+    #开始mybatis-plus sql查询的日志输出
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 

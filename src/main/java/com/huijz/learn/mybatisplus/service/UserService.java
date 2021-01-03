@@ -1,5 +1,6 @@
 package com.huijz.learn.mybatisplus.service;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.huijz.learn.mybatisplus.entity.User;
 
@@ -10,4 +11,5 @@ import com.huijz.learn.mybatisplus.entity.User;
  * @since 2021-01-01 00:11:07
  */
 public interface UserService extends IService<User> {
+    R getUserByName(String userName);
 }
