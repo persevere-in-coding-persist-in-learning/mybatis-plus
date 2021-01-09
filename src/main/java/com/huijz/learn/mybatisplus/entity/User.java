@@ -1,12 +1,13 @@
 package com.huijz.learn.mybatisplus.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.time.LocalDateTime;
 
 /**
  * (User)表实体类
@@ -28,4 +29,16 @@ public class User extends Model<User> {
     private Integer age;
     //邮箱
     private String email;
+    //版本号
+    @Version
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private int version;
+    //创建时间
+    @DateTimeFormat
+    @TableField(fill = FieldFill.INSERT)
+    private LocalDateTime createTime;
+    //修改时间
+    @DateTimeFormat
+    @TableField(fill = FieldFill.INSERT_UPDATE)
+    private LocalDateTime updateTime;
 }
